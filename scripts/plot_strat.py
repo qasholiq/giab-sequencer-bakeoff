@@ -14,6 +14,6 @@ for ax, metric in zip(axes, ["sensitivity", "precision"]):
     ax.set_xticklabels(order, rotation=60, ha="right")
     ax.set_title(metric.capitalize() + " by genomic context")
     ax.set_ylabel(metric.capitalize()); ax.set_ylim(0, 1.02)
-axes[0].legend()
-plt.tight_layout()
+fig.legend(*axes[0].get_legend_handles_labels(), loc="upper center", ncol=3)
+plt.tight_layout(rect=(0, 0, 1, 0.93))
 plt.savefig("results/strat/strat_barplot.png", dpi=200)

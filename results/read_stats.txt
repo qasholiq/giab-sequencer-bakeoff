@@ -1,0 +1,2 @@
+pacbio reads=10434 mean=14217.9 N50=13606
+ont reads=8223 mean=19236.9 N50=52539

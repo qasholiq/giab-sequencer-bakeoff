@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # Stratified benchmarking: score each platform inside GIAB genome contexts
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 BASE=https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/genome-stratifications/v3.6/GRCh38@all
 SDF=data/reference/chr20.sdf
 BENCH=data/truth/benchmark_chr20_10-15Mb.bed
 mkdir -p data/strat results/strat
+PLATS=${PLATS:-"illumina pacbio ont"}; OUT=${OUT:-results/strat/strat_summary.tsv}
 
-declare -A QCUT=( [illumina]=5 [pacbio]=7 [ont]=13 )
-for p in illumina pacbio ont; do
+declare -A QCUT=( [illumina]=5 [pacbio]=7 [ont]=13 [ont_wm]=12 [pacbio_wm]=5 [illumina_bt2]=8 )
+for p in $PLATS; do
   bcftools view -i "QUAL>=${QCUT[$p]}" -f PASS,. -Oz -o results/strat/$p.filt.vcf.gz results/calls_$p/merge_output.vcf.gz
   tabix -f -p vcf results/strat/$p.filt.vcf.gz
 done
@@ -30,7 +31,7 @@ segdups SegmentalDuplications/GRCh38_segdups.bed.gz
 hard_lowmap_or_segdup Union/GRCh38_alllowmapandsegdupregions.bed.gz
 LIST
 
-printf "stratum\tplatform\tbases\ttruth_TP\tFP\tFN\tprecision\tsensitivity\tF\n" > results/strat/strat_summary.tsv
+printf "stratum\tplatform\tbases\ttruth_TP\tFP\tFN\tprecision\tsensitivity\tF\n" > $OUT
 while read -r name path; do
   if [ "$path" = "NONE" ]; then
     cp $BENCH data/strat/$name.chr20.bed
@@ -42,13 +43,13 @@ while read -r name path; do
   fi
   bases=$(awk '{s+=$3-$2} END{print s+0}' data/strat/$name.chr20.bed)
   if [ "$bases" -eq 0 ]; then echo "skip $name (empty in window)"; continue; fi
-  for p in illumina pacbio ont; do
+  for p in $PLATS; do
     out=results/strat/${name}__$p
     rm -rf $out
     rtg vcfeval -b data/truth/truth.vcf.gz -c results/strat/$p.filt.vcf.gz -t $SDF \
       -e data/strat/$name.chr20.bed -o $out --threads 4 > /dev/null 2>&1
     tail -n 1 $out/summary.txt | awk -v n=$name -v p=$p -v b=$bases \
-      '{printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", n,p,b,$2,$4,$5,$6,$7,$8}' >> results/strat/strat_summary.tsv
+      '{printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n", n,p,b,$2,$4,$5,$6,$7,$8}' >> $OUT
   done
   echo "done $name"
 done < data/strat/list.txt
