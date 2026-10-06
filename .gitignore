@@ -18,3 +18,4 @@ results/strat/*__*/
 results/strat/*.vcf.gz*
 data/
 *.vcf.gz.tbi
+results/test/
