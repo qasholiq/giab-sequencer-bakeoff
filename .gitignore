@@ -1,0 +1,13 @@
+data/
+*.bam
+*.bai
+*.cram
+*.crai
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.fa
+*.fa.gz
+*.fna
+*.fna.gz
+*.sam
