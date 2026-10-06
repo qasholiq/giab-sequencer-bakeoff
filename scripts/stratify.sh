@@ -26,6 +26,8 @@ not_low_mappability Mappability/GRCh38_notinlowmappabilityall.bed.gz
 gc_extreme_lt25_gt65 GCcontent/GRCh38_gclt25orgt65_slop50.bed.gz
 gc_normal_30to55 GCcontent/GRCh38_gc30to55_slop50.bed.gz
 not_in_segdups SegmentalDuplications/GRCh38_notinsegdups.bed.gz
+segdups SegmentalDuplications/GRCh38_segdups.bed.gz
+hard_lowmap_or_segdup Union/GRCh38_alllowmapandsegdupregions.bed.gz
 LIST
 
 printf "stratum\tplatform\tbases\ttruth_TP\tFP\tFN\tprecision\tsensitivity\tF\n" > results/strat/strat_summary.tsv

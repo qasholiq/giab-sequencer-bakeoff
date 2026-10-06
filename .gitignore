@@ -17,3 +17,4 @@ results/call_log.txt
 results/strat/*__*/
 results/strat/*.vcf.gz*
 data/
+*.vcf.gz.tbi
