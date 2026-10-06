@@ -11,3 +11,6 @@ data/
 *.fna
 *.fna.gz
 *.sam
+results/calls_*/
+results/eval_*/
+results/call_log.txt
