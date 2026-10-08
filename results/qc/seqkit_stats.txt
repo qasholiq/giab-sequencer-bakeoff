@@ -1,0 +1,6 @@
+file                              format  type  num_seqs      sum_len  min_len   avg_len  max_len      Q1        Q2      Q3  sum_gap     N50  N50_num  Q20(%)  Q30(%)  AvgQual  GC(%)   sum_n
+data/fastq/illumina_R1.fq.gz      FASTQ   DNA    305,447   75,948,499       37     248.6      250     249       250     250        0     250  151,897   96.38    94.1    27.27  38.51   4,710
+data/fastq/illumina_R2.fq.gz      FASTQ   DNA    305,447   75,949,423       35     248.7      250     249       250     250        0     250  151,899    93.1   89.01    24.23  38.49  28,406
+data/fastq/illumina_single.fq.gz  FASTQ   DNA        496      123,829      246     249.7      250     249       250     250        0     250      248    90.8    85.1    23.35  40.49      20
+data/fastq/ont.fq.gz              FASTQ   DNA      8,223  158,184,885      107  19,236.9  219,136   2,650     7,246  23,322        0  52,539      951   59.03   41.71      9.3  38.32       0
+data/fastq/pacbio.fq.gz           FASTQ   DNA     10,434  148,349,367    2,185  14,217.9   27,149  12,327  13,266.5  15,297        0  13,606    4,442    98.8   97.24    28.39  38.83       0

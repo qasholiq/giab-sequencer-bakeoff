@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 O=results/qc; mkdir -p $O/fastp $O/fastqc $O/nanoplot
 # Illumina: adapter content, Q20/Q30, duplication, insert size peak (no output reads written)
 fastp -i data/fastq/illumina_R1.fq.gz -I data/fastq/illumina_R2.fq.gz -j $O/fastp/illumina.json -h $O/fastp/illumina.html -w 4 2> $O/fastp/illumina.log
-fastqc -t 4 -o $O/fastqc data/fastq/illumina_R1.fq.gz data/fastq/illumina_R2.fq.gz
+fastqc -t 4 --outdir $O/fastqc data/fastq/illumina_R1.fq.gz data/fastq/illumina_R2.fq.gz
 # Long reads: length distribution, N50, mean read quality
 for p in pacbio ont; do NanoPlot --fastq data/fastq/$p.fq.gz -t 4 -o $O/nanoplot/$p --N50 --no_static 2>/dev/null || NanoPlot --fastq data/fastq/$p.fq.gz -t 4 -o $O/nanoplot/$p --N50; done
 seqkit stats -a data/fastq/*.fq.gz | tee $O/seqkit_stats.txt

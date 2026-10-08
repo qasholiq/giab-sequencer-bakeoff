@@ -1,0 +1,30 @@
+== Illumina (fastp) ==
+{'total_reads': 610894, 'read1_mean_length': 248, 'read2_mean_length': 248, 'q20_rate': 0.947402, 'q30_rate': 0.915514, 'gc_content': 0.38502}
+duplication_rate 9.82167e-06
+adapter_trimmed_reads 4884
+insert_size_peak 376 unknown_fraction 22110
+passed_filter 609034 low_quality 1400 too_many_N 460
+== pacbio (NanoStats)
+Mean read length:               14,217.9
+Mean read quality:                  28.5
+Median read quality:                33.4
+Number of reads:                10,434.0
+Read length N50:                13,606.0
+Total bases:               148,349,367.0
+>Q10:	10434 (100.0%) 148.3Mb
+>Q15:	10434 (100.0%) 148.3Mb
+>Q20:	10434 (100.0%) 148.3Mb
+>Q25:	8817 (84.5%) 124.8Mb
+>Q30:	6892 (66.1%) 96.6Mb
+== ont (NanoStats)
+Mean read length:               19,236.9
+Mean read quality:                   9.2
+Median read quality:                10.4
+Number of reads:                 8,223.0
+Read length N50:                52,539.0
+Total bases:               158,184,885.0
+>Q10:	4617 (56.1%) 94.2Mb
+>Q15:	1 (0.0%) 0.0Mb
+>Q20:	0 (0.0%) 0.0Mb
+>Q25:	0 (0.0%) 0.0Mb
+>Q30:	0 (0.0%) 0.0Mb
