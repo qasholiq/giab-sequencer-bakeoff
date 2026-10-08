@@ -2,7 +2,7 @@
 # Subsample each platform to ~30x on chr20:10-15Mb and convert to FASTQ.
 # Fractions = 30 / measured mean depth (69.36, 57.25, 44.66). Seed = 42.
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 mkdir -p data/fastq
 
 # Illumina (paired): -F 0x900 drops secondary/supplementary alignments.

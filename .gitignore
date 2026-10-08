@@ -19,3 +19,8 @@ results/strat/*.vcf.gz*
 data/
 *.vcf.gz.tbi
 results/test/
+!test_data/*.bam
+!test_data/*.bam.bai
+.snakemake/
+results/call_log_*.txt
+results/bowtie2_log.txt

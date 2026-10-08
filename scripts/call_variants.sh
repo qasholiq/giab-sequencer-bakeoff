@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Call variants with Clair3. Run inside: conda activate calling
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 ROOT=$PWD
 REF=$ROOT/data/reference/chr20.fa
 MODELS=$CONDA_PREFIX/bin/models

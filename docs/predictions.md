@@ -42,3 +42,18 @@ GIAB v4.2.1 truth, scored with rtg vcfeval, stratified by GIAB genome contexts.
 ## To fill after analysis
 
 For each Pn: confirmed / partly / rejected, with the number from `results/strat/strat_summary.tsv`.
+## Scorecard (fill-in for "To fill after analysis" in predictions.md; numbers from results/strat/strat_summary.tsv, strat_with_ci.tsv)
+
+| # | Verdict | Number |
+|---|---|---|
+| P1 | Confirmed | F 0.9986 (HiFi) >= 0.9903 (Illumina) > 0.9126 (ONT) |
+| P2 | Confirmed | not_in_repeats_or_homopolymers F: 0.9940 / 1.0000 / 0.9715 |
+| P3 | Mostly | homopolymer_7to11 F: ONT 0.3035, HiFi 0.9958, Illumina 0.9944 (Illumina did NOT degrade at 7-11 bp) |
+| P4 | Confirmed | homopolymer_ge12 F: ONT 0.0952, Illumina 0.9298, HiFi 0.9824 |
+| P5 | Mostly | tandem_repeats sensitivity: Illumina 0.960, HiFi 0.988 (CIs overlap), ONT 0.452 with precision 0.986 |
+| P6 | Confirmed | low_mappability sensitivity: Illumina 0.884, HiFi 1.000, ONT 0.937 |
+| P7 | Rejected | gc_extreme F 0.9874 vs gc_normal 0.9910 (Illumina); CIs overlap |
+| P8 | Partly | Bowtie2 -0.0068 F (up to -0.036 in hard strata); Winnowmap ONT -0.0001, HiFi +0.0001 |
+| P9 | Partly rejected | USD per 1,000 correct variants: Illumina 0.07, HiFi 0.42-0.64, ONT 0.97 (scripts/cost_per_variant.py) |
+
+Falsification criteria listed above were not met.

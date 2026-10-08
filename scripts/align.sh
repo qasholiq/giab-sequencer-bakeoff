@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Align 30x FASTQs to chr20 with platform-appropriate aligners.
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 REF=data/reference/chr20.fa
 T=8
 mkdir -p data/aligned

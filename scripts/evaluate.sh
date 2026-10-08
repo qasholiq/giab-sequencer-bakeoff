@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Score each call set against the GIAB truth with rtg vcfeval
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 SDF=data/reference/chr20.sdf
 [ -d $SDF ] || rtg format -o $SDF data/reference/chr20.fa
 for p in illumina pacbio ont; do

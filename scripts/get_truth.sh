@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Fetch GIAB HG002 v4.2.1 (GRCh38) truth variants + benchmark regions, chr20:10-15Mb only.
 set -euo pipefail
-cd ~/giab-sequencer-bakeoff
+cd "$(dirname "$0")/.."
 mkdir -p data/truth
 B=https://ftp-trace.ncbi.nlm.nih.gov/ReferenceSamples/giab/release/AshkenazimTrio/HG002_NA24385_son/NISTv4.2.1/GRCh38
 bcftools view -r chr20:10000000-15000000 -Oz -o data/truth/truth.vcf.gz \
