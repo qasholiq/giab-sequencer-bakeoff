@@ -24,3 +24,7 @@ results/test/
 .snakemake/
 results/call_log_*.txt
 results/bowtie2_log.txt
+results/qc/fastp/
+results/qc/fastqc/
+results/qc/nanoplot/
+results/timing/
