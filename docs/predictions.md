@@ -53,4 +53,4 @@ GIAB v4.2.1 truth, scored with rtg vcfeval, stratified by GIAB genome contexts.
 | P8 | Partly | Bowtie2 -0.0068 F (up to -0.036 in hard strata); Winnowmap ONT -0.0001, HiFi +0.0001 |
 | P9 | Partly rejected | USD per 1,000 correct variants: Illumina 0.07, HiFi 0.42-0.64, ONT 0.97 (scripts/cost_per_variant.py) |
 
-Falsification criteria listed above were not met.
+
