@@ -39,10 +39,7 @@ GIAB v4.2.1 truth, scored with rtg vcfeval, stratified by GIAB genome contexts.
 - Illumina matching PacBio in low-mappability and tandem-repeat strata.
 - Swapping the aligner changing no calls at all (then P8 is wrong).
 
-## To fill after analysis
-
-For each Pn: confirmed / partly / rejected, with the number from `results/strat/strat_summary.tsv`.
-## Scorecard (fill-in for "To fill after analysis" in predictions.md; numbers from results/strat/strat_summary.tsv, strat_with_ci.tsv)
+## Scorecard: predictions vs measurements (numbers from results/strat/strat_summary.tsv and strat_with_ci.tsv)
 
 | # | Verdict | Number |
 |---|---|---|
